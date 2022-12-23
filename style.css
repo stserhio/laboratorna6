@@ -1,0 +1,142 @@
+/*Задаємо стилі для всіх класів */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+/*Прибираємо зовнішні відступи для заголовків */
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+/*Задаємо стиль заголовку */
+.header {
+  width: 100%;
+  padding: 15px 0; /*Внутрішній відступ: перше число: зверху знизу, друге: справа зліва */
+
+  text-align: center; /*Вирівнюємо текст по центру */
+  font-size: 24px;
+  font-weight: 300;
+  color: gray;
+}
+
+.header__logo {
+  color: inherit; /*Колір задається від заголовка. Колір - сірий, отже лого буде також сірим */
+  text-decoration: none; /*Прибираємо підкреслення знизу */
+}
+
+.hero {
+  min-height: 100vh; /*Мін висота: один екран (100віаш) */
+  display: flex; /*Розміщуємо елементи по центру */
+  justify-content: center; /*Розміщуємо весь контент по центру*/
+  align-items: center; /*Щоб вирівняти весь контент по вертикальному центру, при зміні ширину екрану блоки здвигаються в центр*/
+}
+
+.container {
+  max-width: 1230px;
+  width: 100%; /*Використовуємо 100% щоб блок був розміщений на всю  можливу ширину */
+  margin: 0 auto; /*Відступ зверху та знизу по нулям, а зліва та з правої сторони авто, що зробить відступ блока по центру*/
+  padding: 0 15px; /*Внутрінній відступ */
+}
+
+.hero__container {
+  display: grid;
+  /*Задаємо мінімальну-максимальну ширину колонок */
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  /*auto fit розміщення колонок на максимальну ширину */
+  grid-gap: 20px; /*Робимо відступи між ячейками, щоб при зміні ширини екрану вони не прилипали один до одного*/
+}
+
+.hero__about {
+  display: flex;
+  flex-direction: column; /*Щоб розмістити елементи по вертикалі */
+  justify-content: center; /*Щоб розмістити по центру */
+}
+
+.hero__title {
+  margin-bottom: 20px; /*Задаємо нижній відступ */
+
+  font-size: 48px;
+  line-height: 1.1;
+}
+.hero__subtitle {
+  font-size: 32px;
+  font-weight: 400;
+}
+.hero__links {
+  display: flex;
+}
+.hero__link {
+  margin-right: 10px; /*Зовнішній відступ з правої сторони */
+  font-size: 30px;
+  color: #000;
+  transition: color 0.3s; /*Робимо плавність при наведенні*/
+}
+
+.hero__link:hover {
+  /*Робимо ефект при наведенні, колір іконок зміниться */
+  color: #4facfe;
+}
+
+/*Робимо стилізацію для блока з зображенням */
+.hero__box {
+  max-width: 500px;
+  justify-self: center;
+  overflow: hidden; /*Приховуємо все, що знаходиться за межами блоку*/
+  background-image: linear-gradient(
+    to top,
+    #30cfd0 0%,
+    #330867 100%
+  ); /*Робимо фон нашого блоку градієнтним, фон беремо з сайту webgradients*/
+  border: 10px solid #fff; /*Задаємо розмір зовнішньої границь - суцільний білий текст */
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5); /*Задаємо тінь блоку з зображенням із прозорістю 50% */
+
+  animation: ava-animate 5s infinite alternate; /*Робимо тривалість анімації 5 сек, незкінченну, та можливість програвати анімацію у зворотньому напрямку  */
+}
+
+.hero__box-img {
+  animation: ava-bg 3s infinite alternate;
+}
+
+/*Прописуємо анімацію для картинки, значення копіюємо з сайту fancy-border-radius*/
+/*ава анімейт - назва анімації*/
+@keyframes ava-animate {
+  0% {
+    border-radius: 27% 73% 48% 52% / 17% 38% 62% 83%;
+  }
+
+  40% {
+    border-radius: 61% 39% 69% 31% / 51% 59% 41% 49%;
+  }
+
+  60% {
+    border-radius: 40% 60% 23% 77% / 24% 49% 51% 76%;
+  }
+
+  100% {
+    border-radius: 28% 72% 56% 44% / 71% 26% 74% 29%;
+  }
+}
+
+/*Створимо анімацію для зміни фону блока з зображенням */
+@keyframes ava-bg {
+  from {
+    backdrop-filter: hue-rotate(0);
+  }
+
+  to {
+    backdrop-filter: hue-rotate(90deg);
+  }
+}
