@@ -110,6 +110,16 @@ h3 {
   animation: ava-bg 3s infinite alternate;
 }
 
+.footer {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 120px;
+  position: relative;
+}
+
 /*Прописуємо анімацію для картинки, значення копіюємо з сайту fancy-border-radius*/
 /*ава анімейт - назва анімації*/
 @keyframes ava-animate {
